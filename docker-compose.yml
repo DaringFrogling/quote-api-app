@@ -8,7 +8,7 @@ services:
   # nginx
   nginx:
     image: nginx:stable-alpine
-    container_name: symfonyDemo-nginx-server
+    container_name: symfonyFirstApp-nginx-server
     ports:
       - "8080:80"
     volumes:
@@ -24,7 +24,7 @@ services:
   # mysql
   mysql57:
     image: mysql:5.7
-    container_name: symfonyDemo-db
+    container_name: symfonyFirstApp-db
     restart: unless-stopped
     volumes:
       - ./mysql/data:/var/lib/mysql
@@ -42,7 +42,7 @@ services:
   # adminer
   adminer:
     image: adminer
-    container_name: symfonyDemo-adminer
+    container_name: symfonyFirstApp-adminer
     restart: unless-stopped
     ports:
       - 8000:8080
@@ -55,7 +55,7 @@ services:
       context: .
       dockerfile: ./php/build/Dockerfile
     working_dir: /var/www/app
-    container_name: symfonyDemo-app
+    container_name: symfonyFirstApp-app
     volumes:
       - ./app:/var/www/app
       - ./php/php-ini/7.4/php.ini:/usr/local/etc/php/php.ini
