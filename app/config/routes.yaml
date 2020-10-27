@@ -1,3 +1,29 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+authors_list:
+  path: api/v1/authors
+  controller: App\Controller\AuthorController:indexAction
+  methods: [GET]
+
+authors_create:
+  path: api/v1/authors
+  controller: App\Controller\AuthorController:createAction
+  methods: [POST]
+
+quotes_list:
+  path: api/v1/quotes
+  controller: App\Controller\QuoteController:indexAction
+  methods: [GET]
+
+quotes_create:
+  path: api/v1/quotes
+  controller: App\Controller\QuoteController:createAction
+  methods: [POST]
+
+types_list:
+  path: api/v1/types
+  controller: App\Controller\CategoryController:indexAction
+  methods: [GET]
+
+types_create:
+  path: api/v1/types
+  controller: App\Controller\CategoryController:createAction
+  methods: [POST]
