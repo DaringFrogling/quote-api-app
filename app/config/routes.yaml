@@ -8,6 +8,16 @@ authors_create:
   controller: App\Controller\AuthorController:createAction
   methods: [POST]
 
+categories_list:
+  path: api/v1/categories
+  controller: App\Controller\CategoryController:indexAction
+  methods: [ GET ]
+
+categories_create:
+  path: api/v1/categories
+  controller: App\Controller\CategoryController:createAction
+  methods: [ POST ]
+
 quotes_list:
   path: api/v1/quotes
   controller: App\Controller\QuoteController:indexAction
@@ -18,12 +28,23 @@ quotes_create:
   controller: App\Controller\QuoteController:createAction
   methods: [POST]
 
-categories_list:
-  path: api/v1/categories
-  controller: App\Controller\CategoryController:indexAction
+quotes_list_by_author:
+  path: api/v1/quotes/author/{id}
+  controller: App\Controller\QuoteController:showAction
   methods: [GET]
+  requirements:
+    id: '\d+'
 
-categories_create:
-  path: api/v1/categories
-  controller: App\Controller\CategoryController:createAction
-  methods: [POST]
+delete_quote:
+  path: api/v1/quotes/{id}
+  controller: App\Controller\QuoteController:deleteAction
+  methods: [DELETE]
+  requirements:
+    id: '\d+'
+
+update_quote:
+  path: api/v1/quotes/{id}
+  controller: App\Controller\QuoteController:updateAction
+  methods: [PATCH]
+  requirements:
+    id: '\d+'
