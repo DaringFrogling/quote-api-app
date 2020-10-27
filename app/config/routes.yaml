@@ -18,12 +18,12 @@ quotes_create:
   controller: App\Controller\QuoteController:createAction
   methods: [POST]
 
-types_list:
-  path: api/v1/types
+categories_list:
+  path: api/v1/categories
   controller: App\Controller\CategoryController:indexAction
   methods: [GET]
 
-types_create:
-  path: api/v1/types
+categories_create:
+  path: api/v1/categories
   controller: App\Controller\CategoryController:createAction
   methods: [POST]
