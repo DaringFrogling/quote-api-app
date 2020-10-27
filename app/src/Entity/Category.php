@@ -4,26 +4,29 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-use App\Repository\CategoryRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Table(name="quote_category")
- * @ORM\Entity(repositoryClass=CategoryRepository::class)
+ * @ORM\Entity()
  */
 class Category
 {
     /**
+     * @var integer|null
+     *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private int $id;
 
     /**
+     * @var string|null
+     *
      * @ORM\Column(type="string", length=128, unique=true)
      */
-    private $name;
+    private string $name;
 
     public function getId(): ?int
     {

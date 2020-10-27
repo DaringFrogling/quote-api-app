@@ -4,38 +4,45 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-use App\Repository\QuoteRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Table(name="quote")
- * @ORM\Entity(repositoryClass=QuoteRepository::class)
+ * @ORM\Entity()
  */
 class Quote
 {
     /**
+     * @var integer|null
+     *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private int $id;
 
     /**
+     * @var string|null
+     *
      * @ORM\Column(type="string")
      */
-    private $text;
+    private string $text;
 
     /**
+     * @var Category|null
+     *
      * @ORM\ManyToOne(targetEntity=Category::class)
      * @ORM\JoinColumn(nullable=false)
      */
-    private $category;
+    private Category $category;
 
     /**
+     * @var Author|null
+     *
      * @ORM\ManyToOne(targetEntity=Author::class)
      * @ORM\JoinColumn(nullable=false)
      */
-    private $author;
+    private Author $author;
 
     public function getId(): ?int
     {
@@ -59,7 +66,7 @@ class Quote
         return $this->category;
     }
 
-    public function setCategory(?Category $category): self
+    public function setCategory(Category $category): self
     {
         $this->category = $category;
 
@@ -71,7 +78,7 @@ class Quote
         return $this->author;
     }
 
-    public function setAuthor(?Author $author): self
+    public function setAuthor(Author $author): self
     {
         $this->author = $author;
 

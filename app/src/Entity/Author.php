@@ -4,31 +4,36 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-use App\Repository\AuthorRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Table(name="quote_author")
- * @ORM\Entity(repositoryClass=AuthorRepository::class)
+ * @ORM\Entity()
  */
 class Author
 {
     /**
+     * @var integer|null
+     *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private int $id;
 
     /**
+     * @var string|null
+     *
      * @ORM\Column(type="string", length=128)
      */
-    private $name;
+    private string $name;
 
     /**
+     * @var string|null
+     *
      * @ORM\Column(type="string", length=128)
      */
-    private $surname;
+    private string $surname;
 
     public function getId(): ?int
     {
